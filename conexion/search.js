@@ -1,8 +1,28 @@
+;
+let entorno = require('./setup/config/config')
+entorno.initVar()
+let datosDb = require('./database/db') 
 
-const knex = require('./db');
-// function busqueda() {
+
+module.exports={
+  development:{
+    migrations:{table: 'knex_migrations'},
+    seeds: { tableName: './seeds' },
+    client: datosDb.client,
+    connection: datosDb.connection
+  },
+  production:{
+    migrations:{table: 'knex_migrations'},
+    seeds: { tableName: './seeds' },
+    client: datosDb.client,
+    connection: datosDb.connection
+  }
+}
+/* ;
+const knex = require('./database/db.js')
+ function busqueda() {
   var Twit = require('twit');
-  var config = require('./config');
+  var config = require('./setup/config/config');
   var T = new Twit(config);
   var numero = 8;
   var params = {
@@ -13,7 +33,7 @@ const knex = require('./db');
   T.get('search/tweets', params, searchedData);
 
   function searchedData(err, data, response) {
-    console.log(data);
+  //  console.log(data);
     var con = 0;
     for (con = 0; con < numero; con++) {
       knex('eventos').insert([{
@@ -30,7 +50,7 @@ const knex = require('./db');
   }
 
   function consel() {
-    knex.select('texto').table('eventos').then(function (consul) {
+    knex.select('texto','id').table('eventos').then(function (consul) {
        console.log(consul);
       //document.getElementById("texto").innerHTML = consul;
 
@@ -38,11 +58,12 @@ const knex = require('./db');
 
   }
   consel();
- //}
- //setInterval(busqueda, 40000);
+ }
+ setInterval(busqueda, 80000);
 
 
 
 
 
 
+ */

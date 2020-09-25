@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/cards.css">
   </head>
   <body class="container">
+    <form action="recuperardatos" method="GET">
     <div class="contenedor">
     <div class="card-group">
     <div class="card" style="width: 18rem;">
@@ -69,5 +70,19 @@
     <br>
   </div>
 </div>
-  </body>
+</form>
+<p id="demo"></p>
+
+  </body>       
+  <!-- !<script src="../conexion/search.js"></script> -->
+  <!-- <script src="../conexion/require.js"></script> -->
+  <script>
+     var app = new function get() {
+      const query = 'http://localhost:3001/server/get'
+      let tabla = 'eventos'
+      //this.http.get(query + '?tabla=' + tabla)
+      let resultado=(query + '?tabla=' + tabla);
+      console.log(resultado);
+    } 
+  </script>
 </html>
