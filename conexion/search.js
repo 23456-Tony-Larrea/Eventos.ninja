@@ -1,28 +1,9 @@
-;
-let entorno = require('./setup/config/config')
-entorno.initVar()
-let datosDb = require('./database/db') 
 
-
-module.exports={
-  development:{
-    migrations:{table: 'knex_migrations'},
-    seeds: { tableName: './seeds' },
-    client: datosDb.client,
-    connection: datosDb.connection
-  },
-  production:{
-    migrations:{table: 'knex_migrations'},
-    seeds: { tableName: './seeds' },
-    client: datosDb.client,
-    connection: datosDb.connection
-  }
-}
-/* ;
-const knex = require('./database/db.js')
+ ;
+const knex = require('./database/dbSearch')
  function busqueda() {
   var Twit = require('twit');
-  var config = require('./setup/config/config');
+  var config = require('./setup/config/twuits');
   var T = new Twit(config);
   var numero = 8;
   var params = {
@@ -33,7 +14,7 @@ const knex = require('./database/db.js')
   T.get('search/tweets', params, searchedData);
 
   function searchedData(err, data, response) {
-  //  console.log(data);
+  console.log(response);
     var con = 0;
     for (con = 0; con < numero; con++) {
       knex('eventos').insert([{
@@ -60,10 +41,3 @@ const knex = require('./database/db.js')
   consel();
  }
  setInterval(busqueda, 80000);
-
-
-
-
-
-
- */

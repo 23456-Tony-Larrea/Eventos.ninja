@@ -1,5 +1,5 @@
 ;
-let config = require('../search')
+let config = require('../knexfile')
 let env = 'development'
 let db= require('knex')(config[env])
 
